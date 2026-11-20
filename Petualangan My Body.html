@@ -1,0 +1,738 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Petualangan My Body</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap">
+<style>
+/* Konsep tata letak: langit biru muda dengan awan putih, tanah cokelat muda di bawah, satu kartu putih per bagian. Anak peraga di tengah jadi pusat belajar. */
+:root{
+  --bg:#F2F9FE; --sky:#CFEAFB; --cloud:#FFFFFF; --card:#FFFFFF; --ink:#1F3A52; --ink-soft:#4F6E87; --line:#CFE3F3;
+  --head:#1C6FAE; --btn:#2B87C8; --btn-ink:#FFFFFF;
+  --blue:#3AA7E8; --blue-pale:#E3F3FD; --brown:#7B5A3A; --brown-pale:#F6EBDC; --brown-mid:#D9B88F;
+  --hit:rgba(58,167,232,.2); --accent:#2B87C8;
+  --skin:#F3CFA8; --skin-dk:#D9A877; --hair:#8A5E3B; --shirt:#7CC4F0; --pants:#B9916A; --shoe:#8A6644; --ink-fig:#2A2A2A;
+  --ok:#1F7A4D; --ok-bg:#DDF4E6; --warn:#9A4A12; --warn-bg:#FDEBDA;
+  --g1:#E3F3FD; --g2:#F6EBDC; --g3:#DDF4E6; --g4:#FFF3C9; --g5:#EBE5FB; --g6:#FCE4EC;
+  --gb1:#3AA7E8; --gb2:#C99B63; --gb3:#3FA46E; --gb4:#E5B83A; --gb5:#8E78D6; --gb6:#E07B9C;
+  --hill1:#EEDFC8; --hill2:#E2CCAB; --shadow:0 5px 0 rgba(28,111,174,.12);
+  --f-display:"Fredoka","Trebuchet MS",system-ui,sans-serif;
+  --f-body:"Nunito","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1D2B; --sky:#14324A; --cloud:#2A4A66; --card:#162B3D; --ink:#E8F3FB; --ink-soft:#A5C2D8; --line:#2A4760;
+    --head:#8FD0F7; --btn:#59B4EE; --btn-ink:#0C2234;
+    --blue:#6BBDF0; --blue-pale:#1B3A52; --brown:#E0BE96; --brown-pale:#3A2E22; --brown-mid:#9C7C58;
+    --hit:rgba(107,189,240,.25); --accent:#6BBDF0;
+    --skin:#E9BF92; --skin-dk:#C48E5B; --hair:#B98255; --shirt:#4D96C8; --pants:#9C7A55; --shoe:#6E5037; --ink-fig:#1A1A1A;
+    --ok:#8BDCA9; --ok-bg:#1F3D2B; --warn:#F4AE7E; --warn-bg:#402A1B;
+    --g1:#1B3A52; --g2:#3A2E22; --g3:#1F3D2B; --g4:#3D3716; --g5:#2E2A4A; --g6:#42243A;
+    --gb1:#6BBDF0; --gb2:#C99B63; --gb3:#5FC08B; --gb4:#E5B83A; --gb5:#A793EA; --gb6:#E58DAB;
+    --hill1:#2B2A25; --hill2:#241F1A; --shadow:0 5px 0 rgba(0,0,0,.3);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1D2B; --sky:#14324A; --cloud:#2A4A66; --card:#162B3D; --ink:#E8F3FB; --ink-soft:#A5C2D8; --line:#2A4760;
+  --head:#8FD0F7; --btn:#59B4EE; --btn-ink:#0C2234;
+  --blue:#6BBDF0; --blue-pale:#1B3A52; --brown:#E0BE96; --brown-pale:#3A2E22; --brown-mid:#9C7C58;
+  --hit:rgba(107,189,240,.25); --accent:#6BBDF0;
+  --skin:#E9BF92; --skin-dk:#C48E5B; --hair:#B98255; --shirt:#4D96C8; --pants:#9C7A55; --shoe:#6E5037; --ink-fig:#1A1A1A;
+  --ok:#8BDCA9; --ok-bg:#1F3D2B; --warn:#F4AE7E; --warn-bg:#402A1B;
+  --g1:#1B3A52; --g2:#3A2E22; --g3:#1F3D2B; --g4:#3D3716; --g5:#2E2A4A; --g6:#42243A;
+  --gb1:#6BBDF0; --gb2:#C99B63; --gb3:#5FC08B; --gb4:#E5B83A; --gb5:#A793EA; --gb6:#E58DAB;
+  --hill1:#2B2A25; --hill2:#241F1A; --shadow:0 5px 0 rgba(0,0,0,.3);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;
+  padding-block:6px 112px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+h1,h2,h3{font-family:var(--f-display);color:var(--head);line-height:1.1;margin:0;text-wrap:balance;font-weight:700}
+h1{font-size:clamp(2.3rem,7.5vw,3.6rem)}
+h2{font-size:clamp(1.7rem,5vw,2.3rem)}
+h3{font-size:1.25rem}
+p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--brown);outline-offset:2px}
+.wrap{max-width:940px;margin:0 auto}
+.en{font-family:var(--f-display);font-weight:600;color:var(--head)}
+
+/* latar */
+.scene{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background:linear-gradient(var(--sky) 0,var(--bg) 55%)}
+.scene svg{position:absolute}
+.cloud{width:140px;top:64px;fill:var(--cloud);opacity:.95;animation:drift 70s linear infinite}
+.cloud.c2{width:96px;top:140px;animation-duration:95s;animation-delay:-40s}
+.cloud.c3{width:76px;top:30px;animation-duration:110s;animation-delay:-70s}
+.hills{left:0;bottom:0;width:100%;height:130px}
+.hills .h1{fill:var(--hill1)} .hills .h2{fill:var(--hill2)}
+@keyframes drift{from{transform:translateX(-170px)}to{transform:translateX(110vw)}}
+
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0 14px}
+.brand{display:flex;align-items:center;gap:8px;font-family:var(--f-display);font-weight:600;color:var(--head);font-size:1.05rem}
+.stepno{font-weight:800;font-size:.9rem;background:var(--card);border:2px solid var(--line);border-radius:999px;padding:3px 12px;color:var(--ink-soft)}
+
+.slide{animation:rise .4s ease-out}
+@keyframes rise{from{opacity:.4;transform:translateY(12px)}to{opacity:1;transform:none}}
+.stack{display:grid;gap:18px}
+.two{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:start}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:20px;box-shadow:var(--shadow);min-width:0}
+.eyebrow{display:inline-block;font-weight:800;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brown);background:var(--brown-pale);border-radius:999px;padding:4px 12px}
+.lead{font-size:1.15rem;color:var(--ink-soft);max-width:34rem}
+.btn{background:var(--btn);color:var(--btn-ink);border:0;border-radius:16px;padding:11px 22px;font-weight:800;font-size:1.02rem;box-shadow:0 4px 0 rgba(0,0,0,.18);transition:transform .12s}
+.btn:hover{transform:translateY(-2px)} .btn:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.18)}
+.btn.sec{background:var(--card);color:var(--head);border:2px solid var(--line);box-shadow:none}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn.big{font-size:1.2rem;padding:14px 28px}
+.speak{display:inline-flex;align-items:center;gap:6px;background:var(--blue-pale);border:2px solid var(--line);color:var(--head);border-radius:999px;padding:5px 14px;font-weight:800;font-size:.92rem}
+.speak:hover{border-color:var(--blue)}
+
+dl.id{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;margin:0 0 12px}
+dl.id dt{color:var(--ink-soft);font-weight:700;font-size:.9rem}
+dl.id dd{margin:0;font-weight:800}
+.field{display:grid;gap:4px}
+.field label{font-weight:800;font-size:.9rem;color:var(--ink-soft)}
+input[type=text],textarea{width:100%;font:inherit;font-weight:700;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:10px 14px}
+textarea{min-height:84px;resize:vertical}
+.emo{display:inline-block;line-height:1}
+
+/* tubuh */
+.figbox{display:grid;justify-items:center;gap:8px}
+.fig{width:min(100%,250px);height:auto;overflow:visible;display:block}
+.part{cursor:pointer;outline:none}
+.part .hit{fill:transparent;stroke:transparent;stroke-width:3;pointer-events:all;transition:fill .15s,stroke .15s}
+.part:hover .hit,.part:focus-visible .hit{fill:var(--hit);stroke:var(--accent);stroke-dasharray:6 5}
+.part.on .hit{fill:var(--hit);stroke:var(--accent);stroke-dasharray:none;animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{50%{stroke-width:6}}
+.bob{animation:bob 3.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-5px)}}
+.info{display:grid;gap:10px;align-content:start}
+.bigpic{display:grid;place-items:center;width:112px;height:112px;border-radius:28px;background:var(--blue-pale);font-size:3.6rem;border:3px solid var(--line)}
+.sent{font-family:var(--f-display);font-weight:600;font-size:1.7rem;color:var(--head);line-height:1.2}
+.sent b{color:var(--brown);font-weight:700}
+.tag{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem;background:var(--blue-pale);color:var(--head)}
+.tag.pl{background:var(--brown-pale);color:var(--brown)}
+.pop{animation:pop .35s}
+@keyframes pop{0%{transform:scale(.85)}60%{transform:scale(1.06)}100%{transform:scale(1)}}
+
+/* tab */
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{background:var(--card);border:2px solid var(--line);border-radius:999px;padding:7px 16px;font-weight:800;color:var(--ink-soft)}
+.tab[aria-selected=true]{background:var(--head);border-color:var(--head);color:var(--card)}
+.sect{display:grid;gap:14px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.rule{border-radius:20px;padding:16px;display:grid;gap:10px;align-content:start}
+.rule.one{background:var(--blue-pale)} .rule.many{background:var(--brown-pale)}
+.rule h3{color:var(--head)} .rule.many h3{color:var(--brown)}
+.ex{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;background:var(--card);border-radius:14px;padding:8px 12px;font-weight:700;border:0;text-align:left;width:100%}
+.ex .emo{font-size:1.8rem}
+.ex .snd{font-size:1.1rem}
+.ex:hover{outline:2px solid var(--blue)}
+.note{background:var(--brown-pale);color:var(--ink);border-radius:16px;padding:12px 16px;font-weight:700}
+.scroll{overflow-x:auto}
+table{border-collapse:separate;border-spacing:0;width:100%;min-width:440px}
+th,td{padding:10px 12px;text-align:left;border-bottom:2px solid var(--line);vertical-align:top}
+th{font-family:var(--f-display);font-size:1.05rem;color:var(--head)}
+td:first-child{font-weight:800;color:var(--ink-soft)}
+
+.goal{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center}
+.goal .num{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:var(--brown-pale);border:3px solid var(--brown-mid);font-size:1.8rem}
+.goal p{font-weight:700;font-size:1.05rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--blue-pale);border-radius:999px;padding:4px 12px;font-weight:800;font-size:.9rem}
+.chip.br{background:var(--brown-pale)}
+
+/* aktivitas */
+.msg{border-radius:16px;padding:10px 16px;font-weight:700;background:var(--blue-pale);min-height:3em;display:flex;align-items:center}
+.msg.good{background:var(--ok-bg);color:var(--ok)}.msg.bad{background:var(--warn-bg);color:var(--warn)}
+.cmd{display:flex;flex-wrap:wrap;align-items:center;gap:12px;background:var(--blue-pale);border-radius:18px;padding:14px 16px}
+.cmd .t{font-family:var(--f-display);font-weight:600;font-size:1.6rem;color:var(--head)}
+.bar{height:12px;border-radius:99px;background:var(--blue-pale);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--blue);border-radius:99px;transition:width .4s}
+.shake{animation:shake .4s}
+@keyframes shake{20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.mt{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px}
+.mt .col{display:grid;gap:10px;align-content:start}
+.mbtn{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:10px 12px;font-weight:700;text-align:left;line-height:1.3;min-height:54px;display:flex;align-items:center}
+.mbtn.pic{font-size:2.3rem;justify-content:center;min-height:68px}
+.mbtn.sel{border-color:var(--brown);background:var(--brown-pale)}
+.mbtn.m0{background:var(--g1);border-color:var(--gb1)}.mbtn.m1{background:var(--g2);border-color:var(--gb2)}
+.mbtn.m2{background:var(--g3);border-color:var(--gb3)}.mbtn.m3{background:var(--g4);border-color:var(--gb4)}
+.mbtn.m4{background:var(--g5);border-color:var(--gb5)}.mbtn.m5{background:var(--g6);border-color:var(--gb6)}
+.mbtn:disabled{cursor:default}
+.lk{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;border:2px solid var(--line);border-radius:18px;padding:12px 14px}
+.lk .pic{font-size:2.6rem;display:grid;place-items:center;width:82px;height:72px;background:var(--blue-pale);border-radius:16px}
+.lk .line{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-family:var(--f-display);font-weight:600;font-size:1.3rem;color:var(--head)}
+.lk input{width:8.5em;font-family:var(--f-display);font-size:1.2rem;padding:6px 10px;text-align:center}
+.lk input.ok{border-color:var(--ok);background:var(--ok-bg)}
+.lk .fbk{grid-column:1/-1;font-weight:700;font-size:.95rem}
+.lk .fbk.good{color:var(--ok)}.lk .fbk.bad{color:var(--warn)}
+.bank{display:flex;flex-wrap:wrap;gap:8px}
+.bank button{background:var(--brown-pale);border:2px solid var(--brown-mid);border-radius:999px;padding:4px 14px;font-weight:800;color:var(--brown)}
+.mine{display:grid;gap:8px}
+.mine .row{display:flex;align-items:center;gap:10px;background:var(--ok-bg);color:var(--ok);border-radius:14px;padding:8px 14px;font-weight:800;font-family:var(--f-display);font-size:1.15rem}
+.chk{display:flex;align-items:center;gap:10px;font-weight:700}
+.chk input{width:24px;height:24px;accent-color:var(--btn)}
+
+/* kuis */
+.qhead{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;margin-bottom:14px}
+.qpic{display:grid;place-items:center;font-size:3.6rem;background:var(--blue-pale);border-radius:22px;padding:10px;margin:12px 0;min-height:96px}
+.qtext{font-size:1.4rem;margin:8px 0 14px;color:var(--ink);font-family:var(--f-body);font-weight:800;line-height:1.35}
+.opts{display:grid;gap:10px}
+.opt{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;text-align:left;background:var(--card);border:2px solid var(--line);border-radius:16px;padding:12px 14px;font-weight:700;transition:transform .12s}
+.opt b{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--blue-pale);color:var(--head)}
+.opt:hover:not(:disabled){transform:translateX(4px);border-color:var(--blue)}
+.opt.right{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.opt.wrong{background:var(--warn-bg);border-color:var(--warn);color:var(--warn)}
+.opt:disabled{cursor:default}
+.fb{margin-top:14px;border-radius:16px;padding:14px 16px;font-weight:600;animation:rise .3s}
+.fb strong{display:block;font-family:var(--f-display);font-size:1.25rem;margin-bottom:2px}
+.fb.good{background:var(--ok-bg);color:var(--ok)}.fb.bad{background:var(--warn-bg);color:var(--warn)}.fb.info{background:var(--blue-pale);color:var(--ink)}
+.qfoot{margin-top:14px;display:flex;justify-content:flex-end}
+
+.score{font-family:var(--f-display);font-weight:700;font-size:4.2rem;line-height:1;color:var(--head)}
+.dots10{display:flex;flex-wrap:wrap;gap:6px}
+.dot10{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.9rem}
+.dot10.y{background:var(--ok-bg);color:var(--ok)}.dot10.n{background:var(--warn-bg);color:var(--warn)}
+.gl{display:grid;gap:4px}
+.gl .row{display:flex;justify-content:space-between;gap:10px;font-weight:700}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{background:var(--card);border:2px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:800;font-size:.9rem}
+.seg button[aria-pressed=true]{background:var(--head);border-color:var(--head);color:var(--card)}
+.refl{display:grid;gap:8px;padding:12px 0;border-bottom:2px dashed var(--line)}
+
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  background:var(--card);border-top:2px solid var(--line)}
+.dots{display:flex;gap:8px}
+.dots button{width:14px;height:14px;border-radius:50%;border:2px solid var(--blue);background:var(--card);padding:0}
+.dots button[aria-current=step]{background:var(--blue);transform:scale(1.25)}
+.nav .btn{padding:9px 18px}
+@media(max-width:430px){.nav .t{display:none}.nav .btn{padding:9px 16px}}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--head);color:var(--card);padding:10px 18px;border-radius:14px;font-weight:800;z-index:30;max-width:90vw;text-align:center}
+.spark{position:fixed;z-index:50;pointer-events:none;font-size:1.3rem;animation:spark .9s ease-out forwards}
+@keyframes spark{from{opacity:1;transform:translate(-50%,-50%)}to{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy)))}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="scene" aria-hidden="true">
+  <svg class="cloud" viewBox="0 0 120 50"><ellipse cx="40" cy="30" rx="30" ry="16"/><ellipse cx="72" cy="26" rx="28" ry="18"/><ellipse cx="94" cy="34" rx="22" ry="12"/></svg>
+  <svg class="cloud c2" viewBox="0 0 120 50"><ellipse cx="40" cy="30" rx="30" ry="16"/><ellipse cx="72" cy="26" rx="28" ry="18"/><ellipse cx="94" cy="34" rx="22" ry="12"/></svg>
+  <svg class="cloud c3" viewBox="0 0 120 50"><ellipse cx="40" cy="30" rx="30" ry="16"/><ellipse cx="72" cy="26" rx="28" ry="18"/><ellipse cx="94" cy="34" rx="22" ry="12"/></svg>
+  <svg class="hills" viewBox="0 0 1200 160" preserveAspectRatio="none"><path class="h1" d="M0 90 Q200 30 420 84 T860 74 T1200 64 V160 H0Z"/><path class="h2" d="M0 124 Q260 76 520 114 T1200 102 V160 H0Z"/></svg>
+</div>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><span class="emo" aria-hidden="true">🧒</span>Bahasa Inggris Kelas 3</div>
+    <div class="stepno" id="stepno">Bagian 1 dari 6</div>
+  </header>
+
+  <main>
+    <!-- 1. Pembuka dan identitas -->
+    <section class="slide" data-title="Pembuka">
+      <div class="two">
+        <div class="stack">
+          <span class="eyebrow">Media Belajar Interaktif</span>
+          <h1>Petualangan My Body</h1>
+          <p class="lead">Kenali bagian tubuhmu dalam bahasa Inggris. Kita belajar <span class="en">This is my ...</span>, <span class="en">These are my ...</span>, dan <span class="en">I have two ...</span> sambil bermain.</p>
+          <div><button class="btn big" id="start">Mulai Belajar</button></div>
+        </div>
+        <div class="stack">
+          <div class="card">
+            <dl class="id">
+              <dt>Mata pelajaran</dt><dd>Bahasa Inggris</dd>
+              <dt>Kelas / Fase</dt><dd>3 / B</dd>
+              <dt>Topik</dt><dd>My Body: This is dan These are</dd>
+            </dl>
+            <div class="field"><label for="nama">Tulis namamu di sini</label><input type="text" id="nama" placeholder="Contoh: Dina" maxlength="24" autocomplete="off"></div>
+          </div>
+          <div class="card figbox"><div id="heroFig" class="bob" style="width:min(100%,190px)"></div><p class="en" style="font-size:1.3rem">Hello! This is my body.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Tujuan -->
+    <section class="slide" data-title="Tujuan" hidden>
+      <div class="stack">
+        <div><span class="eyebrow">Tujuan Belajar</span></div>
+        <h2 id="hai">Halo! Ini yang akan kita pelajari</h2>
+        <div class="stack">
+          <div class="card goal"><div class="num"><span class="emo">👀</span></div><p>Aku bisa menyebut paling sedikit tiga nama bagian tubuh dari gambar atau perintah sederhana.</p></div>
+          <div class="card goal"><div class="num"><span class="emo">👆</span></div><p>Aku bisa merespons paling sedikit dua perintah lisan tentang bagian tubuh dengan gerakan atau menunjuk gambar.</p></div>
+          <div class="card goal"><div class="num"><span class="emo">🔗</span></div><p>Aku bisa memilih dan mencocokkan tiga pola kalimat (<span class="en">This is my ...</span>, <span class="en">These are my ...</span>, <span class="en">I have two ...</span>) dengan gambar yang sesuai.</p></div>
+          <div class="card goal"><div class="num"><span class="emo">✏️</span></div><p>Aku bisa melengkapi dan menulis tiga kalimat pada LKPD, lalu membacakan paling sedikit dua kalimat kepada pasanganku.</p></div>
+        </div>
+        <div class="card"><h3>Cara belajar hari ini</h3>
+          <div class="chips" style="margin-top:10px"><span class="chip">1 Ketuk dan dengarkan</span><span class="chip br">2 Mainkan aktivitas</span><span class="chip">3 Jawab 10 soal</span><span class="chip br">4 Ceritakan perasaanmu</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Materi -->
+    <section class="slide" data-title="Materi" hidden>
+      <div class="stack">
+        <div><span class="eyebrow">Materi Inti</span></div>
+        <div class="tabs" id="matTabs" role="tablist">
+          <button class="tab" role="tab" data-p="m0" aria-selected="true">Kenali Tubuhku</button>
+          <button class="tab" role="tab" data-p="m1" aria-selected="false">This is / These are</button>
+          <button class="tab" role="tab" data-p="m2" aria-selected="false">I have two</button>
+        </div>
+
+        <div class="card" id="m0">
+          <div class="two" style="align-items:center">
+            <div class="figbox"><div id="mFig" style="width:min(100%,250px)"></div><p style="font-weight:700;color:var(--ink-soft)">Ketuk bagian tubuh pada gambar.</p></div>
+            <div class="info" id="mInfo" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="card sect" id="m1" hidden>
+          <h2>This is dan These are</h2>
+          <div class="grid2">
+            <div class="rule one">
+              <h3>This is my ...</h3>
+              <p style="font-weight:700">Dipakai untuk <b>satu</b> bagian tubuh.</p>
+              <div id="exThis" class="stack" style="gap:8px"></div>
+            </div>
+            <div class="rule many">
+              <h3>These are my ...</h3>
+              <p style="font-weight:700">Dipakai untuk <b>lebih dari satu</b> bagian tubuh.</p>
+              <div id="exThese" class="stack" style="gap:8px"></div>
+            </div>
+          </div>
+          <div class="note">Ingat: <b>This is</b> untuk satu. <b>These are</b> untuk dua atau lebih. Kata <b>feet</b> adalah bentuk jamak dari <b>foot</b>.</div>
+        </div>
+
+        <div class="card sect" id="m2" hidden>
+          <h2>I have two ...</h2>
+          <p>Banyak bagian tubuh kita ada <b>dua</b>. Kita bisa bilang <span class="en">I have two ...</span> (Aku punya dua ...).</p>
+          <div id="exHave" class="grid2"></div>
+          <div class="scroll"><table>
+            <thead><tr><th>Pola kalimat</th><th>Dipakai untuk</th><th>Contoh</th></tr></thead>
+            <tbody>
+              <tr><td>This is my ...</td><td>Satu bagian tubuh</td><td>This is my nose.</td></tr>
+              <tr><td>These are my ...</td><td>Dua atau lebih</td><td>These are my ears.</td></tr>
+              <tr><td>I have two ...</td><td>Menyebut jumlah dua</td><td>I have two hands.</td></tr>
+            </tbody></table></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Aktivitas -->
+    <section class="slide" data-title="Aktivitas" hidden>
+      <div class="stack">
+        <div><span class="eyebrow">Aktivitas Interaktif</span></div>
+        <div class="tabs" id="actTabs" role="tablist">
+          <button class="tab" role="tab" data-p="a1" aria-selected="true">Dengar dan Tunjuk</button>
+          <button class="tab" role="tab" data-p="a2" aria-selected="false">Cocokkan Kalimat</button>
+          <button class="tab" role="tab" data-p="a3" aria-selected="false">LKPD</button>
+        </div>
+
+        <div class="card sect" id="a1">
+          <h2>Dengar dan Tunjuk</h2>
+          <p>Dengarkan perintah. Tunjuk bagian tubuh yang benar pada gambar. Lalu lakukan gerakannya di tubuhmu sendiri.</p>
+          <div class="bar"><i id="tBar" style="width:0%"></i></div>
+          <div class="cmd"><span class="t" id="tCmd">...</span><button class="speak" id="tSpeak" type="button">🔊 Dengarkan</button></div>
+          <div class="two" style="align-items:center">
+            <div class="figbox"><div id="tFig" style="width:min(100%,230px)"></div></div>
+            <div class="stack"><div class="msg" id="tMsg" aria-live="polite">Ketuk gambar tubuh untuk menjawab.</div><div><button class="btn" id="tNext" hidden>Perintah berikutnya →</button><button class="btn sec" id="tReset" hidden>Main lagi</button></div></div>
+          </div>
+        </div>
+
+        <div class="card sect" id="a2" hidden>
+          <h2>Cocokkan Kalimat</h2>
+          <p>Ketuk satu gambar di kiri, lalu ketuk kalimat yang cocok di kanan.</p>
+          <div class="mt"><div class="col" id="cL"></div><div class="col" id="cR"></div></div>
+          <div class="msg" id="cMsg" aria-live="polite">Pilih gambar dulu, ya.</div>
+          <div><button class="btn sec" id="cReset">Main lagi</button></div>
+        </div>
+
+        <div class="card sect" id="a3" hidden>
+          <h2>LKPD: Lengkapi Kalimatku</h2>
+          <p>Lihat gambar. Tulis kata yang hilang. Kamu juga boleh mengetuk kata di bank kata.</p>
+          <div class="bank" id="bank"></div>
+          <div class="stack" id="lkpd"></div>
+          <h3>Kalimatku</h3>
+          <div class="mine" id="mine"><p style="color:var(--ink-soft);font-weight:700">Kalimat yang sudah benar akan muncul di sini.</p></div>
+          <h3>Baca bersama pasangan</h3>
+          <p>Tunjukkan kertas LKPD kepada pasanganmu. Bacakan paling sedikit dua kalimat. Beri centang jika sudah.</p>
+          <div class="stack" style="gap:8px" id="readChecks"></div>
+          <div class="msg" id="lMsg" aria-live="polite">Selesaikan kalimat, lalu bacakan kepada pasanganmu.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Kuis -->
+    <section class="slide" data-title="Kuis" hidden>
+      <div class="stack">
+        <div><span class="eyebrow">Kuis 10 Soal</span></div>
+        <div class="card" id="quiz"></div>
+      </div>
+    </section>
+
+    <!-- 6. Refleksi -->
+    <section class="slide" data-title="Refleksi" hidden>
+      <div class="stack">
+        <div><span class="eyebrow">Umpan Balik dan Refleksi</span></div>
+        <div class="two">
+          <div class="card stack" id="hasil"></div>
+          <div class="card">
+            <h2 style="font-size:1.6rem">Bagaimana perasaanmu?</h2>
+            <div id="reflRows"></div>
+            <div class="msg" id="reflMsg" style="margin-top:10px">Pilih salah satu untuk setiap pernyataan.</div>
+            <div class="field" style="margin-top:14px"><label for="catatan">Kata Inggris yang paling kusuka hari ini:</label><textarea id="catatan" placeholder="Tulis di sini"></textarea></div>
+            <div style="margin-top:10px"><button class="btn" id="saveRefl">Kirim ceritaku</button></div>
+            <div class="msg good" id="thanks" hidden style="margin-top:10px"></div>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px"><button class="btn sec" id="again">Ulangi kuis</button><button class="btn sec" id="toMat">Buka materi lagi</button><button class="btn sec" id="toStart">Kembali ke awal</button></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<nav class="nav" aria-label="Navigasi bagian">
+  <button class="btn sec" id="prev"><span aria-hidden="true">←</span> <span class="t">Kembali</span></button>
+  <div class="dots" id="dots"></div>
+  <button class="btn" id="next"><span class="t">Lanjut</span> <span aria-hidden="true">→</span></button>
+</nav>
+<div class="toast" id="toast" hidden role="status"></div>
+
+<script>
+(function(){
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function pick(a){return a[Math.floor(Math.random()*a.length)]}
+var REDUCE=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var CANSPEAK=!!(window.speechSynthesis&&window.SpeechSynthesisUtterance);
+function say(t){if(!CANSPEAK)return;try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.8;speechSynthesis.speak(u)}catch(e){}}
+function setMsg(id,t,cls){var m=$(id);m.className='msg '+(cls||'');m.textContent=t}
+
+/* data bagian tubuh */
+var P={
+ head:{w:'head',id:'kepala',pl:false,pic:'🧒'},
+ eyes:{w:'eyes',id:'mata',pl:true,pic:'👀'},
+ ears:{w:'ears',id:'telinga',pl:true,pic:'👂👂'},
+ nose:{w:'nose',id:'hidung',pl:false,pic:'👃'},
+ mouth:{w:'mouth',id:'mulut',pl:false,pic:'👄'},
+ arms:{w:'arms',id:'lengan',pl:true,pic:'💪💪'},
+ hands:{w:'hands',id:'tangan',pl:true,pic:'✋✋'},
+ legs:{w:'legs',id:'kaki (paha sampai betis)',pl:true,pic:'🦵🦵'},
+ feet:{w:'feet',id:'telapak kaki',pl:true,pic:'🦶🦶'}
+};
+function sentOf(k){return P[k].pl?'These are my '+P[k].w+'.':'This is my '+P[k].w+'.'}
+
+/* gambar anak */
+function figure(){
+  return '<svg class="fig" viewBox="0 0 240 375" role="group" aria-label="Gambar tubuh anak">'+
+  '<g class="part" data-p="legs" tabindex="0" role="button" aria-label="legs"><rect x="90" y="232" width="26" height="110" rx="12" fill="var(--pants)"/><rect x="124" y="232" width="26" height="110" rx="12" fill="var(--pants)"/><rect class="hit" x="84" y="228" width="72" height="118" rx="14"/></g>'+
+  '<g class="part" data-p="feet" tabindex="0" role="button" aria-label="feet"><ellipse cx="98" cy="350" rx="22" ry="12" fill="var(--shoe)"/><ellipse cx="142" cy="350" rx="22" ry="12" fill="var(--shoe)"/><ellipse class="hit" cx="98" cy="350" rx="27" ry="16"/><ellipse class="hit" cx="142" cy="350" rx="27" ry="16"/></g>'+
+  '<rect x="82" y="126" width="76" height="120" rx="26" fill="var(--shirt)"/>'+
+  '<g class="part" data-p="arms" tabindex="0" role="button" aria-label="arms"><rect x="44" y="138" width="22" height="92" rx="11" fill="var(--shirt)" transform="rotate(12 55 140)"/><rect x="174" y="138" width="22" height="92" rx="11" fill="var(--shirt)" transform="rotate(-12 185 140)"/><rect class="hit" x="38" y="132" width="34" height="104" rx="14" transform="rotate(12 55 140)"/><rect class="hit" x="168" y="132" width="34" height="104" rx="14" transform="rotate(-12 185 140)"/></g>'+
+  '<g class="part" data-p="hands" tabindex="0" role="button" aria-label="hands"><circle cx="36" cy="240" r="13" fill="var(--skin)"/><circle cx="204" cy="240" r="13" fill="var(--skin)"/><circle class="hit" cx="36" cy="240" r="19"/><circle class="hit" cx="204" cy="240" r="19"/></g>'+
+  '<rect x="110" y="116" width="20" height="18" fill="var(--skin-dk)"/>'+
+  '<g class="part" data-p="head" tabindex="0" role="button" aria-label="head"><circle cx="120" cy="76" r="50" fill="var(--skin)"/><path d="M71 66 Q120 6 169 66 Q148 38 120 38 Q92 38 71 66Z" fill="var(--hair)"/><circle class="hit" cx="120" cy="76" r="54"/></g>'+
+  '<g class="part" data-p="ears" tabindex="0" role="button" aria-label="ears"><ellipse cx="68" cy="82" rx="9" ry="13" fill="var(--skin)" stroke="var(--skin-dk)" stroke-width="2"/><ellipse cx="172" cy="82" rx="9" ry="13" fill="var(--skin)" stroke="var(--skin-dk)" stroke-width="2"/><ellipse class="hit" cx="66" cy="82" rx="14" ry="19"/><ellipse class="hit" cx="174" cy="82" rx="14" ry="19"/></g>'+
+  '<g class="part" data-p="eyes" tabindex="0" role="button" aria-label="eyes"><circle cx="100" cy="78" r="6" fill="var(--ink-fig)"/><circle cx="140" cy="78" r="6" fill="var(--ink-fig)"/><circle cx="102" cy="76" r="2" fill="#fff"/><circle cx="142" cy="76" r="2" fill="#fff"/><circle class="hit" cx="100" cy="78" r="14"/><circle class="hit" cx="140" cy="78" r="14"/></g>'+
+  '<g class="part" data-p="nose" tabindex="0" role="button" aria-label="nose"><ellipse cx="120" cy="94" rx="6" ry="5" fill="var(--skin-dk)"/><circle class="hit" cx="120" cy="94" r="11"/></g>'+
+  '<g class="part" data-p="mouth" tabindex="0" role="button" aria-label="mouth"><path d="M104 108 Q120 122 136 108" fill="none" stroke="#C4574A" stroke-width="4" stroke-linecap="round"/><rect class="hit" x="97" y="101" width="46" height="26" rx="13"/></g>'+
+  '</svg>';
+}
+function mountFig(host,onPick){
+  host.innerHTML=figure();
+  $$('.part',host).forEach(function(g){
+    function act(){onPick(g.dataset.p,g)}
+    g.addEventListener('click',act);
+    g.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();act()}});
+  });
+  return {mark:function(k){$$('.part',host).forEach(function(g){g.classList.toggle('on',g.dataset.p===k)})}};
+}
+
+/* bagian 1 */
+$('#heroFig').innerHTML=figure();
+$$('#heroFig .part').forEach(function(g){g.style.pointerEvents='none'});
+
+/* bagian 3 */
+var mSel='eyes';
+var mFig=mountFig($('#mFig'),function(k){mSel=k;showPart(true)});
+function showPart(speak){
+  var p=P[mSel],s=sentOf(mSel);mFig.mark(mSel);
+  $('#mInfo').innerHTML='<div class="bigpic pop">'+p.pic+'</div><div class="sent">'+s.replace(p.w,'<b>'+p.w+'</b>')+'</div><div><span class="tag '+(p.pl?'pl':'')+'">'+(p.pl?'Lebih dari satu':'Satu')+'</span></div><p style="font-weight:700"><span class="en">'+p.w+'</span> artinya <b>'+p.id+'</b>.'+(p.pl?' Aku punya dua: <span class="en">I have two '+p.w+'.</span>':'')+'</p><div><button class="speak" id="mSpeak" type="button">🔊 Dengarkan</button></div>';
+  var b=$('#mSpeak');if(!CANSPEAK)b.hidden=true;b.addEventListener('click',function(){say(s)});
+  if(speak)say(s);
+}
+showPart(false);
+function exRow(k,text){return '<button type="button" class="ex" data-s="'+text+'"><span class="emo" aria-hidden="true">'+P[k].pic+'</span><span>'+text+'</span><span class="snd" aria-hidden="true">'+(CANSPEAK?'🔊':'')+'</span></button>'}
+$('#exThis').innerHTML=['head','nose','mouth'].map(function(k){return exRow(k,sentOf(k))}).join('');
+$('#exThese').innerHTML=['eyes','ears','hands','feet'].map(function(k){return exRow(k,sentOf(k))}).join('');
+$('#exHave').innerHTML=['eyes','ears','arms','hands','legs','feet'].map(function(k){return exRow(k,'I have two '+P[k].w+'.')}).join('');
+$$('.ex').forEach(function(b){b.addEventListener('click',function(){say(b.dataset.s)})});
+function tabs(id,fn){
+  var root=$(id);
+  $$('.tab',root).forEach(function(t){t.addEventListener('click',function(){
+    $$('.tab',root).forEach(function(x){x.setAttribute('aria-selected',x===t?'true':'false');var p=document.getElementById(x.dataset.p);if(p)p.hidden=(x!==t)});
+    if(fn)fn(t.dataset.p);
+  })});
+}
+tabs('#matTabs');tabs('#actTabs');
+
+/* efek */
+function burst(el){
+  if(REDUCE||!el)return;var r=el.getBoundingClientRect(),sy=['⭐','✨','☁️'];
+  for(var k=0;k<7;k++){var s=document.createElement('span');s.className='spark';s.textContent=sy[k%3];
+    s.style.left=(r.left+r.width/2)+'px';s.style.top=(r.top+r.height/2)+'px';
+    s.style.setProperty('--dx',(Math.random()*160-80)+'px');s.style.setProperty('--dy',(-30-Math.random()*90)+'px');
+    document.body.appendChild(s);(function(n){setTimeout(function(){n.remove()},900)})(s)}
+}
+
+/* pencocok umum */
+function matchUI(L,R,pairs,cb){
+  var Ls=pairs.map(function(p,i){return {i:i,t:p.l}}),Rs=shuffle(pairs.map(function(p,i){return {i:i,t:p.r}}));
+  L.innerHTML=Ls.map(function(x){return '<button type="button" class="mbtn pic" data-i="'+x.i+'">'+x.t+'</button>'}).join('');
+  R.innerHTML=Rs.map(function(x){return '<button type="button" class="mbtn" data-i="'+x.i+'">'+x.t+'</button>'}).join('');
+  var sel=null,matched=0,mistakes=0;
+  $$('.mbtn',L).forEach(function(b){b.addEventListener('click',function(){
+    $$('.mbtn',L).forEach(function(x){x.classList.remove('sel')});sel=b;b.classList.add('sel');cb.onPick&&cb.onPick()})});
+  $$('.mbtn',R).forEach(function(b){b.addEventListener('click',function(){
+    if(!sel){cb.noSel();return}
+    var i=+b.dataset.i;
+    if(+sel.dataset.i===i){
+      var c='m'+(matched%6);sel.classList.remove('sel');sel.classList.add(c);b.classList.add(c);sel.disabled=true;b.disabled=true;
+      var s=sel;sel=null;matched++;cb.right(pairs[i],s,matched===pairs.length);
+      if(matched===pairs.length)cb.done(mistakes);
+    }else{
+      mistakes++;[sel,b].forEach(function(x){x.classList.remove('shake');void x.offsetWidth;x.classList.add('shake')});
+      cb.wrong(pairs[+sel.dataset.i],pairs[i]);
+    }
+  })});
+}
+
+/* bagian 4a: dengar dan tunjuk */
+var CMD=[
+ {t:'Touch your nose.',k:'nose',mv:'Sentuh hidungmu sendiri.'},
+ {t:'Point to your ears.',k:'ears',mv:'Pegang kedua telingamu.'},
+ {t:'Show me your hands.',k:'hands',mv:'Angkat kedua tanganmu.'},
+ {t:'Touch your head.',k:'head',mv:'Sentuh kepalamu.'},
+ {t:'Point to your eyes.',k:'eyes',mv:'Tunjuk kedua matamu.'},
+ {t:'Stamp your feet.',k:'feet',mv:'Hentakkan kedua kakimu pelan-pelan.'}];
+var T={list:[],i:0,first:0,tried:false,locked:false,played:false};
+var tFig=mountFig($('#tFig'),function(k,g){tAnswer(k,g)});
+function tStart(){
+  T.list=shuffle(CMD);T.i=0;T.first=0;T.played=false;$('#tReset').hidden=true;tShow();
+}
+function tShow(){
+  var c=T.list[T.i];T.tried=false;T.locked=false;tFig.mark(null);
+  $('#tCmd').textContent=c.t;$('#tBar').style.width=(T.i/T.list.length*100)+'%';
+  setMsg('#tMsg','Perintah '+(T.i+1)+' dari '+T.list.length+'. Ketuk gambar tubuh untuk menjawab.','');
+  $('#tNext').hidden=true;
+  if(T.i>0||T.played)say(c.t);
+}
+function tAnswer(k,g){
+  if(T.locked)return;var c=T.list[T.i];
+  if(k===c.k){
+    T.locked=true;tFig.mark(k);if(!T.tried)T.first++;burst(g);
+    setMsg('#tMsg',pick(['Hebat!','Bagus sekali!','Tepat sekali!'])+' '+c.t.replace('.','')+' = '+P[k].id+'. Sekarang lakukan: '+c.mv,'good');
+    var nb=$('#tNext');nb.hidden=false;nb.textContent=T.i<T.list.length-1?'Perintah berikutnya →':'Selesai →';
+  }else{
+    T.tried=true;
+    setMsg('#tMsg','Belum tepat. Itu '+P[k].w+' ('+P[k].id+'). Dengarkan lagi, kamu pasti bisa!','bad');
+  }
+}
+$('#tNext').addEventListener('click',function(){
+  if(T.i<T.list.length-1){T.i++;tShow()}
+  else{T.played=true;T.locked=true;$('#tBar').style.width='100%';tFig.mark(null);$('#tNext').hidden=true;$('#tReset').hidden=false;
+    setMsg('#tMsg','Kamu selesai! '+T.first+' dari '+T.list.length+' perintah benar pada percobaan pertama. '+(T.first>=2?'Kamu sudah bisa merespons perintah dengan baik.':'Ayo main lagi supaya makin lancar.'),'good')}
+});
+$('#tReset').addEventListener('click',tStart);
+$('#tSpeak').addEventListener('click',function(){say(T.list[T.i].t)});
+if(!CANSPEAK)$('#tSpeak').hidden=true;
+
+/* bagian 4b: cocokkan kalimat */
+var CP=['nose','mouth','eyes','ears','hands','feet'].map(function(k){
+  var pat=(k==='nose'||k==='mouth')?'This is my '+k+'.':(k==='eyes'||k==='ears')?'These are my '+k+'.':'I have two '+k+'.';
+  return {l:P[k].pic,r:pat,k:k,pat:pat};
+});
+function cBuild(){
+  matchUI($('#cL'),$('#cR'),CP,{
+    noSel:function(){setMsg('#cMsg','Ketuk gambar di kiri dulu, ya.','')},
+    onPick:function(){setMsg('#cMsg','Sekarang ketuk kalimat yang cocok.','')},
+    right:function(p,btn,last){burst(btn);if(!last){say(p.pat);setMsg('#cMsg','Benar! '+p.pat+' Teruskan!','good')}},
+    wrong:function(a,b){setMsg('#cMsg','Belum cocok. Ingat: satu bagian pakai This is. Dua bagian pakai These are atau I have two. Coba lagi!','bad')},
+    done:function(m){setMsg('#cMsg',m===0?'Luar biasa! Semua cocok tanpa salah.':'Hebat! Semua sudah cocok. Kamu sempat keliru '+m+' kali, tetapi tidak menyerah.','good')}
+  });
+  setMsg('#cMsg','Pilih gambar dulu, ya.','');
+}
+$('#cReset').addEventListener('click',cBuild);
+cBuild();
+
+/* bagian 4c: LKPD */
+var LK=[
+ {pic:'👃',pre:'This is my',ans:'nose',full:'This is my nose.',hint:'Hanya ada satu hidung, jadi kalimatnya This is my ...'},
+ {pic:'👀',pre:'These are my',ans:'eyes',full:'These are my eyes.',hint:'Ada dua mata. Kata untuk dua mata adalah eyes.'},
+ {pic:'✋✋',pre:'I have two',ans:'hands',full:'I have two hands.',hint:'Gambar menunjukkan dua tangan. Kata jamaknya hands.'}];
+var lkDone=[false,false,false],lkRead=[false,false,false],lastIn=null;
+$('#lkpd').innerHTML=LK.map(function(it,i){return '<div class="lk"><div class="pic" aria-hidden="true">'+it.pic+'</div><div class="line"><span>'+(i+1)+'.</span><span>'+it.pre+'</span><input type="text" id="lk'+i+'" data-i="'+i+'" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Kata yang hilang nomor '+(i+1)+'"><span>.</span><button type="button" class="btn" data-c="'+i+'" style="padding:6px 14px;font-size:.95rem">Periksa</button></div><div class="fbk" id="lf'+i+'" aria-live="polite"></div></div>'}).join('');
+$('#bank').innerHTML=shuffle(['nose','eyes','hands','mouth','ears','feet']).map(function(w){return '<button type="button" data-w="'+w+'">'+w+'</button>'}).join('');
+$$('#lkpd input').forEach(function(inp){inp.addEventListener('focus',function(){lastIn=inp});inp.addEventListener('keydown',function(e){if(e.key==='Enter')lkCheck(+inp.dataset.i)})});
+$$('#bank button').forEach(function(b){b.addEventListener('click',function(){
+  var inp=lastIn||$('#lk0');inp.value=b.dataset.w;inp.focus()})});
+$$('#lkpd [data-c]').forEach(function(b){b.addEventListener('click',function(){lkCheck(+b.dataset.c)})});
+function lkCheck(i){
+  var it=LK[i],inp=$('#lk'+i),v=inp.value.trim().toLowerCase().replace(/\.$/,''),f=$('#lf'+i);
+  if(!v){f.className='fbk bad';f.textContent='Tulis dulu satu kata, ya. Kamu boleh ketuk bank kata.';return}
+  if(v===it.ans){
+    lkDone[i]=true;inp.classList.add('ok');inp.readOnly=true;f.className='fbk good';f.textContent=pick(['Hebat!','Benar sekali!','Bagus!'])+' '+it.full;burst(inp);say(it.full);lkRender();
+  }else{
+    f.className='fbk bad';f.textContent='Belum tepat, tidak apa-apa. '+it.hint;
+  }
+}
+function lkRender(){
+  var rows=LK.map(function(it,i){return lkDone[i]?'<div class="row"><span>'+it.pic+'</span><span>'+it.full+'</span>'+(CANSPEAK?'<button class="speak" type="button" data-r="'+i+'">🔊</button>':'')+'</div>':''}).join('');
+  $('#mine').innerHTML=rows||'<p style="color:var(--ink-soft);font-weight:700">Kalimat yang sudah benar akan muncul di sini.</p>';
+  $$('#mine [data-r]').forEach(function(b){b.addEventListener('click',function(){say(LK[+b.dataset.r].full)})});
+  $$('#readChecks input').forEach(function(c,i){c.disabled=!lkDone[i]});
+  lkMsg();
+}
+$('#readChecks').innerHTML=LK.map(function(it,i){return '<label class="chk"><input type="checkbox" data-k="'+i+'" disabled> Aku membacakan "'+it.full+'" kepada pasanganku.</label>'}).join('');
+$$('#readChecks input').forEach(function(c){c.addEventListener('change',function(){lkRead[+c.dataset.k]=c.checked;lkMsg()})});
+function lkMsg(){
+  var d=lkDone.filter(Boolean).length,r=lkRead.filter(Boolean).length;
+  if(d<3)setMsg('#lMsg','Kalimat selesai: '+d+' dari 3. Lanjutkan, kamu pasti bisa!','');
+  else if(r<2)setMsg('#lMsg','Tiga kalimat selesai! Sekarang bacakan paling sedikit dua kalimat kepada pasanganmu.','good');
+  else setMsg('#lMsg','Luar biasa! Kamu sudah menulis dan membacakan kalimatmu. Good job!','good');
+}
+
+/* bagian 5: kuis */
+var KOP=['nose','eyes','ears','mouth'];
+var Q=[
+ {t:'pg',g:'a',pic:'👃',q:'This is my ____.',o:['nose','eyes','ears','hands'],a:0,ex:'Gambar menunjukkan satu hidung. Hidung dalam bahasa Inggris adalah nose.'},
+ {t:'pg',g:'a',pic:'👀',q:'These are my ____.',o:['mouth','nose','eyes','head'],a:2,ex:'Gambar menunjukkan dua mata. Mata dalam bahasa Inggris adalah eyes.'},
+ {t:'pg',g:'c',pic:'👄',q:'Pilih kalimat yang cocok dengan gambar.',o:['This is my mouth.','These are my mouth.','I have two mouth.','These are my mouths.'],a:0,ex:'Mulut hanya satu, jadi kita memakai This is my mouth.'},
+ {t:'pg',g:'c',q:'____ is my head.',o:['This','These','They','We'],a:0,ex:'Kepala hanya satu, jadi memakai This is. These are dipakai untuk dua atau lebih.'},
+ {t:'pg',g:'c',q:'____ are my hands.',o:['This','These','It','He'],a:1,ex:'Tangan ada dua, jadi memakai These are my hands.'},
+ {t:'pg',g:'a',pic:'👂👂',q:'I have two ____.',o:['ear','ears','nose','mouth'],a:1,ex:'Ada dua telinga. Bentuk jamak dari ear adalah ears.'},
+ {t:'pg',g:'c',pic:'👃',q:'Pilih kalimat yang benar.',o:['These are my nose.','This is my nose.','I have two nose.','These is my nose.'],a:1,ex:'Hidung hanya satu, jadi This is my nose.'},
+ {t:'pg',g:'c',pic:'🦶🦶',q:'These are my ____.',o:['foot','feet','foots','nose'],a:1,ex:'Bentuk jamak dari foot adalah feet. Jadi, These are my feet.'},
+ {t:'mt',g:'a',q:'Cocokkan gambar dengan kata bahasa Inggrisnya.',pairs:[{l:'👃',r:'nose'},{l:'👄',r:'mouth'},{l:'👂👂',r:'ears'},{l:'🦶🦶',r:'feet'}],ex:'Nose = hidung, mouth = mulut, ears = telinga, feet = telapak kaki.'},
+ {t:'mt',g:'c',q:'Cocokkan gambar dengan kalimat yang tepat.',pairs:[{l:'👃',r:'This is my nose.'},{l:'👀',r:'These are my eyes.'},{l:'✋✋',r:'I have two hands.'},{l:'👄',r:'This is my mouth.'}],ex:'Satu bagian memakai This is. Dua bagian memakai These are atau I have two.'}
+];
+var GOALS=[
+ {n:'Menyebut bagian tubuh dari gambar',g:'a',tip:'Buka Materi dan ketuk gambar tubuh untuk mendengar kata-katanya.'},
+ {n:'Memilih dan mencocokkan pola kalimat',g:'c',tip:'Baca lagi tabel pola kalimat, lalu main Cocokkan Kalimat.'}];
+var OKT=['Hebat sekali!','Pintar! Kamu benar!','Luar biasa, terus semangat!','Keren! Jawabanmu tepat!','Wah, kamu cepat belajar!'];
+var NOT=['Belum tepat, tidak apa-apa.','Hampir! Ayo kita lihat lagi.','Jangan menyerah, ya.'];
+var MOT=['Setiap kesalahan membantu kita belajar. Semangat!','Kamu pasti bisa di soal berikutnya!','Pelan-pelan saja, kamu sedang belajar bahasa baru.'];
+var qi=0,res=[],quizDone=false;
+function startQuiz(){qi=0;res=[];quizDone=false;renderQ();updateNav()}
+function head(q){
+  var sc=res.filter(Boolean).length*10;
+  return '<div class="qhead"><b>Soal '+(qi+1)+' dari '+Q.length+'</b><div class="bar"><i style="width:'+(qi/Q.length*100)+'%"></i></div><b>Skor '+sc+'</b></div><span class="chip">'+(q.t==='pg'?'Pilihan ganda':'Mencocokkan')+'</span>';
+}
+function finishQ(ok,custom){
+  res[qi]=ok;var fb=$('#fb');fb.hidden=false;
+  if(ok){fb.className='fb good';fb.innerHTML='<strong>'+pick(OKT)+'</strong>'+Q[qi].ex}
+  else{fb.className='fb bad';fb.innerHTML='<strong>'+pick(NOT)+'</strong>'+Q[qi].ex+'<br>'+pick(MOT)}
+  if(custom)fb.innerHTML=custom;
+  var nb=$('#qnext');nb.hidden=false;nb.textContent=qi<Q.length-1?'Soal berikutnya →':'Lihat hasilku →';
+  nb.onclick=function(){if(qi<Q.length-1){qi++;renderQ()}else{quizDone=true;updateNav();go(5)}};
+}
+function renderQ(){
+  var q=Q[qi],box=$('#quiz');
+  if(q.t==='pg'){
+    var opts=shuffle(q.o.map(function(t,k){return {t:t,ok:k===q.a}}));
+    box.innerHTML=head(q)+(q.pic?'<div class="qpic" aria-hidden="true">'+q.pic+'</div>':'')+'<h3 class="qtext">'+q.q+'</h3><div class="opts">'+opts.map(function(o,k){return '<button type="button" class="opt" data-k="'+k+'"><b>'+'ABCD'[k]+'</b><span>'+o.t+'</span></button>'}).join('')+'</div><div class="fb" id="fb" hidden></div><div class="qfoot"><button class="btn" id="qnext" hidden></button></div>';
+    $$('.opt',box).forEach(function(b){b.addEventListener('click',function(){
+      var o=opts[+b.dataset.k];
+      $$('.opt',box).forEach(function(x){x.disabled=true;if(opts[+x.dataset.k].ok)x.classList.add('right')});
+      if(!o.ok)b.classList.add('wrong');else burst(b);
+      finishQ(o.ok);
+    })});
+  }else{
+    box.innerHTML=head(q)+'<h3 class="qtext">'+q.q+'</h3><p style="margin-bottom:10px;font-weight:700;color:var(--ink-soft)">Ketuk gambar di kiri, lalu pasangannya di kanan.</p><div class="mt"><div class="col" id="qL"></div><div class="col" id="qR"></div></div><div class="fb info" id="fb" hidden></div><div class="qfoot"><button class="btn" id="qnext" hidden></button></div>';
+    matchUI($('#qL'),$('#qR'),q.pairs,{
+      noSel:function(){var f=$('#fb');f.hidden=false;f.className='fb info';f.textContent='Pilih gambar di sebelah kiri dulu, ya.'},
+      onPick:function(){$('#fb').hidden=true},
+      right:function(p,btn){burst(btn);$('#fb').hidden=true},
+      wrong:function(){var f=$('#fb');f.hidden=false;f.className='fb info';f.textContent='Belum cocok. Coba pasangan yang lain, ya!'},
+      done:function(m){
+        var ok=m===0;finishQ(ok);
+        if(!ok)$('#fb').innerHTML='<strong>Kamu berhasil menyelesaikannya!</strong>Kamu sempat keliru '+m+' kali. '+q.ex+'<br>'+pick(MOT);
+      }
+    });
+  }
+}
+
+/* bagian 6 */
+var reflVal=[null,null,null,null];
+function renderResult(){
+  var n=res.filter(Boolean).length,sc=n*10,name=nm();
+  var tier=sc>=90?['Bintang My Body','Luar biasa! Kamu sudah sangat paham.']:sc>=70?['Murid Hebat','Bagus sekali! Sedikit lagi kamu jadi ahli.']:sc>=50?['Murid Rajin','Kamu sudah di jalan yang benar. Ayo belajar sedikit lagi.']:['Pejuang Tangguh','Tidak apa-apa. Belajar bahasa baru memang butuh waktu. Kamu pasti bisa!'];
+  var ga=Q.map(function(q,i){return q.g==='a'?i:-1}).filter(function(i){return i>=0}),gc=Q.map(function(q,i){return q.g==='c'?i:-1}).filter(function(i){return i>=0});
+  function cnt(a){return a.filter(function(i){return res[i]}).length}
+  var goals=[
+    {n:'Menyebut bagian tubuh dari gambar',v:cnt(ga),m:ga.length,tip:'Buka Materi dan ketuk gambar tubuh untuk mendengar kata-katanya.'},
+    {n:'Menanggapi perintah dengan menunjuk',v:T.played?T.first:0,m:CMD.length,tip:'Mainkan Dengar dan Tunjuk di bagian Aktivitas.',need:2,note:!T.played},
+    {n:'Mencocokkan pola kalimat',v:cnt(gc),m:gc.length,tip:'Baca lagi tabel pola kalimat, lalu main Cocokkan Kalimat.'},
+    {n:'Menulis dan membacakan kalimat (LKPD)',v:lkDone.filter(Boolean).length,m:3,tip:'Isi LKPD dan bacakan dua kalimat kepada pasanganmu.',read:lkRead.filter(Boolean).length}];
+  $('#hasil').innerHTML='<div><h2>Hasil belajar '+name+'</h2></div><div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap"><div class="score">'+sc+'</div><div><h3>'+tier[0]+'</h3><p style="font-weight:700">'+tier[1]+'</p><p style="color:var(--ink-soft);font-weight:700">'+n+' dari '+Q.length+' soal benar</p></div></div>'+
+   '<div class="dots10">'+res.map(function(r,i){return '<span class="dot10 '+(r?'y':'n')+'" title="Soal '+(i+1)+'">'+(r?'✓':(i+1))+'</span>'}).join('')+'</div>'+
+   '<div class="gl">'+goals.map(function(g,gi){
+     var full=g.v>=(g.need||g.m)&&!g.note;
+     var extra=g.read!==undefined?' Dibacakan ke pasangan: '+g.read+' kalimat.':'';
+     var tip=g.note?'Kamu belum memainkan aktivitas ini. '+g.tip:(full?'Tujuan ini sudah tercapai!'+extra:'Saran: '+g.tip+extra);
+     return '<div class="row"><span>Tujuan '+'abcd'[gi]+': '+g.n+'</span><span>'+g.v+'/'+g.m+'</span></div><div class="bar"><i style="width:'+(g.v/g.m*100)+'%"></i></div><p style="font-size:.92rem;font-weight:700;color:var('+(full?'--ok':'--warn')+')">'+tip+'</p>'}).join('')+'</div>';
+  var labels=['Aku bisa menyebut nama bagian tubuh dalam bahasa Inggris.','Aku bisa menunjuk atau bergerak sesuai perintah.','Aku bisa memakai This is, These are, dan I have two dengan benar.','Aku bisa menulis dan membacakan kalimat sederhana.'];
+  var opts=['Belum paham','Hampir paham','Sudah paham'];
+  $('#reflRows').innerHTML=labels.map(function(l,i){return '<div class="refl"><b>'+l+'</b><div class="seg" data-r="'+i+'">'+opts.map(function(o,k){return '<button type="button" data-v="'+k+'" aria-pressed="'+(reflVal[i]===k)+'">'+o+'</button>'}).join('')+'</div></div>'}).join('');
+  $$('#reflRows .seg').forEach(function(seg){$$('button',seg).forEach(function(b){b.addEventListener('click',function(){
+    reflVal[+seg.dataset.r]=+b.dataset.v;$$('button',seg).forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});reflMsg()})})});
+  reflMsg();
+}
+function reflMsg(){
+  var m=$('#reflMsg');
+  if(reflVal.some(function(v){return v===null})){m.className='msg';m.textContent='Pilih salah satu untuk setiap pernyataan.';return}
+  var low=reflVal.filter(function(v){return v<2}).length;
+  if(!low){m.className='msg good';m.textContent='Wow, kamu siap jadi guru kecil! Ajari temanmu menyebut bagian tubuh dalam bahasa Inggris.'}
+  else{m.className='msg';m.textContent='Terima kasih sudah jujur. Bagian yang belum paham bisa dibuka lagi di Materi. Kamu pasti bisa!'}
+}
+$('#saveRefl').addEventListener('click',function(){var t=$('#thanks');t.hidden=false;t.textContent='Terima kasih sudah bercerita, '+nm()+'! Keep learning!'});
+$('#again').addEventListener('click',function(){startQuiz();go(4)});
+$('#toMat').addEventListener('click',function(){go(2)});
+$('#toStart').addEventListener('click',function(){go(0)});
+
+/* navigasi */
+var slides=$$('.slide'),cur=0,toastT;
+function nm(){var v=$('#nama').value.trim();return v||'Teman'}
+function toast(t){var e=$('#toast');e.textContent=t;e.hidden=false;clearTimeout(toastT);toastT=setTimeout(function(){e.hidden=true},2200)}
+function go(i){
+  if(i>4&&!quizDone){toast('Selesaikan kuis dulu, ya!');return}
+  cur=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach(function(s,k){s.hidden=k!==cur});
+  window.scrollTo(0,0);updateNav();
+  if(cur===1)$('#hai').textContent='Halo, '+nm()+'! Ini yang akan kita pelajari';
+  if(cur===5)renderResult();
+}
+function updateNav(){
+  $('#stepno').textContent='Bagian '+(cur+1)+' dari '+slides.length;
+  $('#prev').disabled=cur===0;
+  $('#next').disabled=cur===slides.length-1||(cur===4&&!quizDone);
+  $$('#dots button').forEach(function(b,k){if(k===cur)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current')});
+}
+$('#dots').innerHTML=slides.map(function(s,i){return '<button type="button" aria-label="Bagian '+(i+1)+': '+s.dataset.title+'" data-i="'+i+'"></button>'}).join('');
+$$('#dots button').forEach(function(b){b.addEventListener('click',function(){go(+b.dataset.i)})});
+$('#prev').addEventListener('click',function(){go(cur-1)});
+$('#next').addEventListener('click',function(){go(cur+1)});
+$('#start').addEventListener('click',function(){go(1)});
+document.addEventListener('keydown',function(e){
+  var tag=(e.target.tagName||'').toLowerCase();if(tag==='input'||tag==='textarea'||tag==='button'||e.target.classList.contains('part'))return;
+  if(e.key==='ArrowRight'&&!$('#next').disabled)go(cur+1);
+  if(e.key==='ArrowLeft'&&cur>0)go(cur-1);
+});
+tStart();startQuiz();updateNav();
+})();
+</script>
+
+</body></html>
